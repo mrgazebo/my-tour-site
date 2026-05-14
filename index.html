@@ -7,8 +7,8 @@
   <style>
     :root {
       --background: #f8f4ee;
-      --blue: #009cc9;
-      --blue-dark: #007fa3;
+      --blue: #0094bf;
+      --blue-dark: #00789c;
       --image-neutral: #ddd0c0;
       --white: #ffffff;
     }
@@ -63,9 +63,9 @@
     }
 
     .main-image {
-      width: min(92vw, 520px);
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
+      width: min(69vw, 390px);
+      height: auto;
+      object-fit: contain;
       display: block;
     }
 
@@ -156,7 +156,7 @@
 
     input::placeholder,
     textarea::placeholder {
-      color: rgba(0, 156, 201, 0.65);
+      color: rgba(0, 148, 191, 0.65);
     }
 
     input:focus,
@@ -205,7 +205,7 @@
       }
 
       .main-image {
-        width: min(94vw, 430px);
+        width: min(70vw, 322px);
       }
 
       .about {
@@ -239,17 +239,16 @@
 
       <section class="about">
         <p>
-          Alternative and niche tours of Paris, with the essential Instagram stops included.
-          History, romance, dining, parties, kids’ magic, secret tunnels, and custom routes.
+          Alternative and niche tours of Paris
         </p>
       </section>
 
       <button class="contact-button" id="openContactButton" type="button">
-        Contact Us
+        Curious?
       </button>
 
       <section class="contact-section" id="contactSection">
-        <h2>Contact Us</h2>
+        <h2>Contact</h2>
 
         <form action="mailto:info@guideddetours.com" method="post" enctype="text/plain">
 
@@ -264,12 +263,12 @@
           </label>
 
           <label>
-            Telephone number optional
+            Telephone number (optional)
             <input type="tel" name="Telephone" placeholder="+33 6 00 00 00 00" />
           </label>
 
           <label>
-            Type of query *
+            Type*
             <select name="Type of query" required>
               <option value="">Choose one</option>
               <option value="Request information packet">Request information packet</option>
@@ -284,11 +283,10 @@
               name="Message"
               maxlength="500"
               required
-              placeholder="Write your message here, up to 500 characters."
             ></textarea>
           </label>
 
-          <p class="small-note">Maximum message length: 500 characters.</p>
+          <p class="small-note">Max 500 characters.</p>
 
           <button class="submit-button" type="submit">Send Message</button>
         </form>
@@ -298,18 +296,20 @@
   </main>
 
   <script>
-    const openContactButton = document.getElementById("openContactButton");
-    const contactSection = document.getElementById("contactSection");
+    document.addEventListener("DOMContentLoaded", function () {
+      const openContactButton = document.getElementById("openContactButton");
+      const contactSection = document.getElementById("contactSection");
 
-    openContactButton.addEventListener("click", function () {
-      contactSection.classList.add("open");
+      openContactButton.addEventListener("click", function () {
+        contactSection.classList.add("open");
 
-      setTimeout(function () {
-        contactSection.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-      }, 250);
+        setTimeout(function () {
+          contactSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        }, 250);
+      });
     });
   </script>
 </body>
