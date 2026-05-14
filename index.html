@@ -5,11 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GuidedDetours</title>
 
-  <!-- Montserrat font -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
   <style>
     :root {
       --background: #f8f4ee;
@@ -26,7 +21,7 @@
 
     body {
       margin: 0;
-      font-family: "Montserrat", Arial, sans-serif;
+      font-family: Impact, Arial Black, Arial, sans-serif;
       background-color: var(--background);
       color: var(--blue);
       line-height: 1.6;
@@ -54,7 +49,7 @@
       color: var(--blue);
       font-size: clamp(2rem, 8vw, 4rem);
       font-weight: 700;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.03em;
     }
 
     .image-section {
@@ -62,40 +57,6 @@
       display: flex;
       justify-content: center;
     }
-
-    .image-placeholder {
-      width: min(90vw, 420px);
-      aspect-ratio: 1 / 1;
-      border: 2px dashed var(--blue);
-      border-radius: 20px;
-      background-color: var(--image-neutral);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-      color: var(--blue);
-      font-weight: 500;
-    }
-
-    /*
-      To use your real image, replace this:
-
-      <div class="image-placeholder">
-        Put your square-ish image here
-      </div>
-
-      with this:
-
-      <img
-        class="main-image"
-        src="Napoleon_Landing_Page.png"
-        alt="Guided Detours Paris tour image"
-      />
-
-      Make sure the image file is uploaded to the same GitHub Pages folder
-      as this index.html file.
-    */
 
     .main-image {
       width: min(90vw, 420px);
@@ -118,6 +79,7 @@
       margin-top: 0;
       color: var(--blue);
       font-size: 1.5rem;
+      letter-spacing: 0.02em;
     }
 
     .placeholder-text {
@@ -141,7 +103,7 @@
     }
 
     label {
-      font-weight: 600;
+      font-weight: 700;
       color: var(--blue);
     }
 
@@ -151,7 +113,8 @@
       width: 100%;
       margin-top: 6px;
       padding: 12px 14px;
-      font: inherit;
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
       border: 1px solid var(--border);
       border-radius: 12px;
       background-color: var(--white);
@@ -181,8 +144,10 @@
       border-radius: 999px;
       background-color: var(--blue);
       color: var(--white);
-      font: inherit;
+      font-family: Impact, Arial Black, Arial, sans-serif;
+      font-size: 1rem;
       font-weight: 700;
+      letter-spacing: 0.03em;
       cursor: pointer;
     }
 
@@ -217,19 +182,18 @@
   <main class="page">
     <div class="container">
 
-      <!-- Website / company name -->
       <header>
         <h1>Guided Detours</h1>
       </header>
 
-      <!-- Main square-ish image area -->
       <section class="image-section">
-        <div class="image-placeholder">
-          Put your square-ish image here
-        </div>
+        <img
+          class="main-image"
+          src="Napoleon_Landing_Page.png"
+          alt="Guided Detours Paris tour image"
+        />
       </section>
 
-      <!-- About section -->
       <section class="section">
         <h2>About</h2>
 
@@ -246,14 +210,9 @@
         </ul>
       </section>
 
-      <!-- Contact form -->
       <section class="section">
         <h2>Contact Us</h2>
 
-        <!--
-          This uses mailto, which opens the visitor's email app.
-          GitHub Pages cannot directly send form submissions without a third-party form service.
-        -->
         <form action="mailto:info@guideddetours.com" method="post" enctype="text/plain">
 
           <label>
