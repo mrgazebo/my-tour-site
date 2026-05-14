@@ -12,24 +12,27 @@
       --blue-dark: #007fa3;
       --image-neutral: #ddd0c0;
       --white: #ffffff;
-      --border: #ddd0c0;
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Impact, Arial Black, Arial, sans-serif;
+      font-family: Impact, "Arial Black", Arial, sans-serif;
       background-color: var(--background);
       color: var(--blue);
-      line-height: 1.6;
+      line-height: 1.4;
     }
 
     .page {
       min-height: 100vh;
-      padding: 24px 16px;
+      padding: 20px 16px 40px;
       display: flex;
       justify-content: center;
     }
@@ -37,69 +40,100 @@
     .container {
       width: 100%;
       max-width: 720px;
+      text-align: center;
     }
 
     header {
-      text-align: center;
-      margin-bottom: 24px;
+      margin-bottom: 14px;
     }
 
     h1 {
       margin: 0;
       color: var(--blue);
-      font-size: clamp(2rem, 8vw, 4rem);
+      font-size: clamp(2.8rem, 13vw, 6rem);
       font-weight: 700;
       letter-spacing: 0.03em;
+      line-height: 0.95;
+      text-transform: uppercase;
     }
 
     .image-section {
-      margin: 0 auto 32px;
+      margin: 0 auto 16px;
       display: flex;
       justify-content: center;
     }
 
     .main-image {
-      width: min(90vw, 420px);
+      width: min(92vw, 520px);
       aspect-ratio: 1 / 1;
       object-fit: cover;
-      border-radius: 20px;
       display: block;
-      border: 2px solid var(--image-neutral);
     }
 
-    .section {
-      background-color: rgba(255, 255, 255, 0.48);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 24px;
-      margin-bottom: 24px;
+    .about {
+      max-width: 560px;
+      margin: 0 auto 24px;
+      font-family: Arial, sans-serif;
+      color: var(--blue);
+      font-size: 0.95rem;
+      line-height: 1.35;
+    }
+
+    .about p {
+      margin: 0;
+    }
+
+    .contact-button {
+      display: inline-block;
+      margin: 8px auto 24px;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 999px;
+      background-color: var(--blue);
+      color: var(--white);
+      font-family: Impact, "Arial Black", Arial, sans-serif;
+      font-size: 1.15rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .contact-button:hover {
+      background-color: var(--blue-dark);
+      transform: translateY(-2px);
+    }
+
+    .contact-section {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px);
+      transition:
+        max-height 0.8s ease,
+        opacity 0.5s ease,
+        transform 0.6s ease;
+    }
+
+    .contact-section.open {
+      max-height: 900px;
+      opacity: 1;
+      transform: translateY(0);
     }
 
     h2 {
-      margin-top: 0;
+      margin: 12px 0 18px;
       color: var(--blue);
-      font-size: 1.5rem;
-      letter-spacing: 0.02em;
-    }
-
-    .placeholder-text {
-      color: var(--blue);
-      font-size: 1rem;
-    }
-
-    .tour-list {
-      margin: 16px 0 0;
-      padding-left: 20px;
-      color: var(--blue);
-    }
-
-    .tour-list li {
-      margin-bottom: 8px;
+      font-size: 2rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
     }
 
     form {
       display: grid;
       gap: 16px;
+      text-align: left;
+      font-family: Arial, sans-serif;
     }
 
     label {
@@ -115,7 +149,7 @@
       padding: 12px 14px;
       font-family: Arial, sans-serif;
       font-size: 1rem;
-      border: 1px solid var(--border);
+      border: 2px solid var(--image-neutral);
       border-radius: 12px;
       background-color: var(--white);
       color: var(--blue);
@@ -138,41 +172,51 @@
       resize: vertical;
     }
 
-    button {
-      padding: 14px 18px;
-      border: none;
-      border-radius: 999px;
-      background-color: var(--blue);
-      color: var(--white);
-      font-family: Impact, Arial Black, Arial, sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: var(--blue-dark);
-    }
-
     .small-note {
+      margin: -6px 0 0;
       font-size: 0.85rem;
       color: var(--blue);
       opacity: 0.8;
     }
 
+    .submit-button {
+      padding: 14px 18px;
+      border: none;
+      border-radius: 999px;
+      background-color: var(--blue);
+      color: var(--white);
+      font-family: Impact, "Arial Black", Arial, sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .submit-button:hover {
+      background-color: var(--blue-dark);
+    }
+
     @media (max-width: 480px) {
       .page {
-        padding: 20px 12px;
-      }
-
-      .section {
-        padding: 20px;
-        border-radius: 20px;
+        padding: 18px 14px 32px;
       }
 
       h1 {
-        font-size: 2.25rem;
+        font-size: clamp(2.6rem, 14vw, 4rem);
+      }
+
+      .main-image {
+        width: min(94vw, 430px);
+      }
+
+      .about {
+        font-size: 0.88rem;
+        margin-bottom: 18px;
+      }
+
+      .contact-button {
+        font-size: 1rem;
+        padding: 13px 24px;
       }
     }
   </style>
@@ -194,23 +238,18 @@
         />
       </section>
 
-      <section class="section">
-        <h2>About</h2>
-
-        <p class="placeholder-text">
-          Alternative and niche tours of Paris but with all the Instagram stuff thrown in.
+      <section class="about">
+        <p>
+          Alternative and niche tours of Paris, with the essential Instagram stops included.
+          History, romance, dining, parties, kids’ magic, secret tunnels, and custom routes.
         </p>
-
-        <ul class="tour-list">
-          <li>Package Tour 1: pretty things and bloody history</li>
-          <li>Package Tour 2: romance and dining</li>
-          <li>Package Tour 3: chill out and party</li>
-          <li>Package Tour 4: magic and games for kids</li>
-          <li>Package Tour 5: dark magic and secret tunnels</li>
-        </ul>
       </section>
 
-      <section class="section">
+      <button class="contact-button" id="openContactButton" type="button">
+        Contact Us
+      </button>
+
+      <section class="contact-section" id="contactSection">
         <h2>Contact Us</h2>
 
         <form action="mailto:info@guideddetours.com" method="post" enctype="text/plain">
@@ -252,11 +291,27 @@
 
           <p class="small-note">Maximum message length: 500 characters.</p>
 
-          <button type="submit">Send Message</button>
+          <button class="submit-button" type="submit">Send Message</button>
         </form>
       </section>
 
     </div>
   </main>
+
+  <script>
+    const openContactButton = document.getElementById("openContactButton");
+    const contactSection = document.getElementById("contactSection");
+
+    openContactButton.addEventListener("click", function () {
+      contactSection.classList.add("open");
+
+      setTimeout(function () {
+        contactSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }, 250);
+    });
+  </script>
 </body>
 </html>
