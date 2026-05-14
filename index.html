@@ -12,11 +12,12 @@
 
   <style>
     :root {
-      --background: #f7f1e3; /* eggshell white */
-      --blue: #1f5f99;
-      --blue-dark: #123f66;
+      --background: #f8f4ee;
+      --blue: #009cc9;
+      --blue-dark: #007fa3;
+      --image-neutral: #ddd0c0;
       --white: #ffffff;
-      --border: #d8d0bd;
+      --border: #ddd0c0;
     }
 
     * {
@@ -27,7 +28,7 @@
       margin: 0;
       font-family: "Montserrat", Arial, sans-serif;
       background-color: var(--background);
-      color: var(--blue-dark);
+      color: var(--blue);
       line-height: 1.6;
     }
 
@@ -67,7 +68,7 @@
       aspect-ratio: 1 / 1;
       border: 2px dashed var(--blue);
       border-radius: 20px;
-      background-color: rgba(255, 255, 255, 0.4);
+      background-color: var(--image-neutral);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -78,13 +79,22 @@
     }
 
     /*
-      To use your real image, replace the image-placeholder div with this:
+      To use your real image, replace this:
+
+      <div class="image-placeholder">
+        Put your square-ish image here
+      </div>
+
+      with this:
 
       <img
         class="main-image"
-        src="Napoleon_Landing_Page"
-        alt="Short description of the image"
+        src="Napoleon_Landing_Page.jpg"
+        alt="Guided Detours Paris tour image"
       />
+
+      Make sure the image file is uploaded to the same GitHub Pages folder
+      as this index.html file.
     */
 
     .main-image {
@@ -93,10 +103,11 @@
       object-fit: cover;
       border-radius: 20px;
       display: block;
+      border: 2px solid var(--image-neutral);
     }
 
     .section {
-      background-color: rgba(255, 255, 255, 0.55);
+      background-color: rgba(255, 255, 255, 0.48);
       border: 1px solid var(--border);
       border-radius: 24px;
       padding: 24px;
@@ -110,8 +121,18 @@
     }
 
     .placeholder-text {
-      color: var(--blue-dark);
+      color: var(--blue);
       font-size: 1rem;
+    }
+
+    .tour-list {
+      margin: 16px 0 0;
+      padding-left: 20px;
+      color: var(--blue);
+    }
+
+    .tour-list li {
+      margin-bottom: 8px;
     }
 
     form {
@@ -121,7 +142,7 @@
 
     label {
       font-weight: 600;
-      color: var(--blue-dark);
+      color: var(--blue);
     }
 
     input,
@@ -134,7 +155,19 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       background-color: var(--white);
-      color: var(--blue-dark);
+      color: var(--blue);
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(0, 156, 201, 0.65);
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: 2px solid var(--blue);
+      outline-offset: 2px;
     }
 
     textarea {
@@ -159,7 +192,7 @@
 
     .small-note {
       font-size: 0.85rem;
-      color: var(--blue-dark);
+      color: var(--blue);
       opacity: 0.8;
     }
 
@@ -196,17 +229,21 @@
         </div>
       </section>
 
-      <!-- Optional text section -->
+      <!-- About section -->
       <section class="section">
         <h2>About</h2>
+
         <p class="placeholder-text">
           Alternative and niche tours of Paris but with all the Instagram stuff thrown in.
-          Package Tour 1: pretty things and bloody history
-          Package Tour 2: romance and dining
-          Package Tour 3: chill out and party
-          Package Tour 4: magic and games for kids
-          Package Tour 5: dark magic and secret tunnels
         </p>
+
+        <ul class="tour-list">
+          <li>Package Tour 1: pretty things and bloody history</li>
+          <li>Package Tour 2: romance and dining</li>
+          <li>Package Tour 3: chill out and party</li>
+          <li>Package Tour 4: magic and games for kids</li>
+          <li>Package Tour 5: dark magic and secret tunnels</li>
+        </ul>
       </section>
 
       <!-- Contact form -->
@@ -214,8 +251,6 @@
         <h2>Contact Us</h2>
 
         <!--
-          Replace info@guideddetours.com with the email address where you want messages sent.
-
           This uses mailto, which opens the visitor's email app.
           GitHub Pages cannot directly send form submissions without a third-party form service.
         -->
@@ -240,13 +275,9 @@
             Type of query *
             <select name="Type of query" required>
               <option value="">Choose one</option>
-              <option value="Reserve tour tickets">Request information packet</option>
-              <option value="General question about the tour and the city">
-                Design-A-Tour
-              </option>
-              <option value="Private requests for special occasions">
-                Other
-              </option>
+              <option value="Request information packet">Request information packet</option>
+              <option value="Design-A-Tour">Design-A-Tour</option>
+              <option value="Other">Other</option>
             </select>
           </label>
 
