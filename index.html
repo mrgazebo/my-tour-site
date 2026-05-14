@@ -1,33 +1,268 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>guided detours</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YOUR COMPANY TITLE</title>
+
+  <!-- Montserrat font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --background: #f7f1e3; /* eggshell white */
+      --blue: #1f5f99;
+      --blue-dark: #123f66;
+      --white: #ffffff;
+      --border: #d8d0bd;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      background: #0f100c;
-      color: white;
-      font-family: Arial, sans-serif;
-      max-width: 700px;
-      margin: 80px auto;
-      padding: 20px;
+      margin: 0;
+      font-family: "Montserrat", Arial, sans-serif;
+      background-color: var(--background);
+      color: var(--blue-dark);
       line-height: 1.6;
     }
 
-    h1 {
-      color: #FBDB5B;
-      font-size: 42px;
+    .page {
+      min-height: 100vh;
+      padding: 24px 16px;
+      display: flex;
+      justify-content: center;
     }
 
-    a {
-      color: #FBDB5B;
+    .container {
+      width: 100%;
+      max-width: 720px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--blue);
+      font-size: clamp(2rem, 8vw, 4rem);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .image-section {
+      margin: 0 auto 32px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .image-placeholder {
+      width: min(90vw, 420px);
+      aspect-ratio: 1 / 1;
+      border: 2px dashed var(--blue);
+      border-radius: 20px;
+      background-color: rgba(255, 255, 255, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      color: var(--blue);
+      font-weight: 500;
+    }
+
+    /*
+      To use your real image, replace the image-placeholder div with this:
+
+      <img
+        class="main-image"
+        src="YOUR-IMAGE-FILENAME.jpg"
+        alt="Short description of the image"
+      />
+    */
+
+    .main-image {
+      width: min(90vw, 420px);
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 20px;
+      display: block;
+    }
+
+    .section {
+      background-color: rgba(255, 255, 255, 0.55);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: var(--blue);
+      font-size: 1.5rem;
+    }
+
+    .placeholder-text {
+      color: var(--blue-dark);
+      font-size: 1rem;
+    }
+
+    form {
+      display: grid;
+      gap: 16px;
+    }
+
+    label {
+      font-weight: 600;
+      color: var(--blue-dark);
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      margin-top: 6px;
+      padding: 12px 14px;
+      font: inherit;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background-color: var(--white);
+      color: var(--blue-dark);
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    button {
+      padding: 14px 18px;
+      border: none;
+      border-radius: 999px;
+      background-color: var(--blue);
+      color: var(--white);
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: var(--blue-dark);
+    }
+
+    .small-note {
+      font-size: 0.85rem;
+      color: var(--blue-dark);
+      opacity: 0.8;
+    }
+
+    @media (max-width: 480px) {
+      .page {
+        padding: 20px 12px;
+      }
+
+      .section {
+        padding: 20px;
+        border-radius: 20px;
+      }
+
+      h1 {
+        font-size: 2.25rem;
+      }
     }
   </style>
 </head>
 
 <body>
-  <h1>welcome</h1>
+  <main class="page">
+    <div class="container">
 
-  <p>guideddetours.com.</p>
+      <!-- Website / company name -->
+      <header>
+        <h1>YOUR COMPANY TITLE</h1>
+      </header>
+
+      <!-- Main square-ish image area -->
+      <section class="image-section">
+        <div class="image-placeholder">
+          Put your square-ish image here
+        </div>
+      </section>
+
+      <!-- Optional text section -->
+      <section class="section">
+        <h2>About the Tour</h2>
+        <p class="placeholder-text">
+          Replace this text with a short description of your company, tour, city,
+          meeting point, languages offered, or anything else you want visitors to know.
+        </p>
+      </section>
+
+      <!-- Contact form -->
+      <section class="section">
+        <h2>Contact Us</h2>
+
+        <!--
+          Replace YOUR-EMAIL@example.com with the email address where you want messages sent.
+
+          This uses mailto, which opens the visitor's email app.
+          GitHub Pages cannot directly send form submissions without a third-party form service.
+        -->
+        <form action="mailto:YOUR-EMAIL@example.com" method="post" enctype="text/plain">
+
+          <label>
+            Name *
+            <input type="text" name="Name" required placeholder="Your name" />
+          </label>
+
+          <label>
+            Email *
+            <input type="email" name="Email" required placeholder="your@email.com" />
+          </label>
+
+          <label>
+            Telephone number optional
+            <input type="tel" name="Telephone" placeholder="+33 6 00 00 00 00" />
+          </label>
+
+          <label>
+            Type of query *
+            <select name="Type of query" required>
+              <option value="">Choose one</option>
+              <option value="Reserve tour tickets">Reserve tour tickets</option>
+              <option value="General question about the tour and the city">
+                General question about the tour and the city
+              </option>
+              <option value="Private requests for special occasions">
+                Private requests for special occasions
+              </option>
+            </select>
+          </label>
+
+          <label>
+            Message *
+            <textarea
+              name="Message"
+              maxlength="500"
+              required
+              placeholder="Write your message here, up to 500 characters."
+            ></textarea>
+          </label>
+
+          <p class="small-note">Maximum message length: 500 characters.</p>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </section>
+
+    </div>
+  </main>
 </body>
 </html>
